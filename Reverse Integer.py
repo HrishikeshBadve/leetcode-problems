@@ -12,17 +12,17 @@ class Solution(object):
         :type x: int
         :rtype: int
         """
-        rev=0
-        k=0
-        if x<0:
+        if x>0:
+            str1 = str(x)
+            str1=str1[::-1]
+            x=int(str1)
+        else:
             x=abs(x)
-            k=1
-        while x>0:
-            temp=x%10
-            rev=(rev*10)+temp
-            x=x//10
-        if k==1:
-            rev=-rev
-        if rev < pow(-2,31) or rev> pow(2,31)-1:
+            str1 = str(x)
+            str1=str1[::-1]
+            x=int(str1)
+            x=-x
+        if(x>=pow(-2,31) and x<=pow(2,31)-1):
+            return x
+        else:
             return 0
-        return rev
